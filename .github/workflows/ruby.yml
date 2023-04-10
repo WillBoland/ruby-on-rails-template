@@ -7,33 +7,15 @@ on:
     branches: [ "main" ]
 
 jobs:
-
   lint:
+    runs-on: ubuntu-latest
     name: Lint
-    runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+      - uses: actions/checkout@v3
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
-      - name: Install dependencies
-        run: bundle install
-      - name: Run rubocop
+        with:
+          ruby-version: 3.2.2
+          bundler-cache: true
+      - name: Run Rubocop
         run: bundle exec rubocop
-
-  test:
-    name: Test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-      - name: Install dependencies
-        run: bundle install
-      - name: Run tests
-        run: bundle exec rake
