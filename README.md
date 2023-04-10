@@ -4,6 +4,8 @@ The basic building blocks for ruby-on-rails repositories. This template holds:
 - Pull request template
 - Standard .gitignore
 
+**You will still need to run `rails new $APP_NAME`** or **`bundle exec rails new $APP_NAME`.**
+
 ## GitHub Workflow
 The [Ruby workflow](.github/workflows/ruby.yml):
 - Runs `rubocop` on the project
